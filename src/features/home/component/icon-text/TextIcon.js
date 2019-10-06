@@ -4,7 +4,7 @@ import { Icon } from "@blueprintjs/core";
 
 export default class TextIcon extends Component {
   static propTypes = {
-    children: PropTypes.any.isRequired,
+    children: PropTypes.any,
     icon: PropTypes.string,
     iconSize: PropTypes.number,
     src: PropTypes.string,
@@ -15,7 +15,7 @@ export default class TextIcon extends Component {
     const { children, icon, iconSize, src, tick } = this.props
     return (
       <div className="text-icon">
-        {icon && (<Icon icon={icon} iconSize={iconSize} color='rgb(9, 132, 227)'/>)}
+        {icon && (<Icon icon={icon} iconSize={iconSize} color='rgb(9, 132, 227)' />)}
         <div className='img-text'>
           {src && (<img src={src} className='imgAvt' />)}
           <span>{children}</span>

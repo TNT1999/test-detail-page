@@ -9,14 +9,17 @@ export class DefaultPage extends Component {
     super();
     this.state = {
       test: {},
-      comments: []
+      comments: [],
+      ranks: []
     };
   }
 
   componentDidMount() {
     this.getTest()
     this.getComonents()
+    this.getRanks()
   }
+
   getTest = async () => {
     try {
       let res = await axios.get("http://5d997652564143001405186b.mockapi.io/api/test/1");
@@ -37,6 +40,16 @@ export class DefaultPage extends Component {
       console.log(e)
     }
   }
+
+  getRanks = async () => {
+    try {
+      let res = await axios.get("http://5d997652564143001405186b.mockapi.io/api/test/1/rank?orderBy=totalCorrect&&order=desc")
+      let ranks = res.data;
+      this.setState({ ranks })
+    } catch (err) {
+      console.log(err)
+    }
+  }
   render() {
     if (!this.state.test.id) return null;
     return (
@@ -46,7 +59,7 @@ export class DefaultPage extends Component {
             <TestDetail test={this.state.test} />
             <CommentList comments={this.state.comments} />
           </div>
-          <RankList test={this.state.test} />
+          <RankList ranks={this.state.ranks} test={this.state.test} />
         </div>
       </div>
     );

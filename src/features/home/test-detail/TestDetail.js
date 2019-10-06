@@ -3,6 +3,7 @@ import { Icon, Button } from "@blueprintjs/core";
 import TextIcon from '../component/icon-text/TextIcon';
 import Tag from '../component/tag/Tag';
 import StarRatings from 'react-star-ratings';
+import moment from 'moment'
 
 export class TestDetail extends Component {
 
@@ -57,7 +58,7 @@ export class TestDetail extends Component {
               <Tag>{this.props.test.tag}</Tag>
             </div>
             <div className='createdAt'>
-              <TextIcon icon='calendar'>{this.props.test.createdAt}</TextIcon>
+              <TextIcon icon='calendar'>{moment(this.props.test.createdAt).format('L')}</TextIcon>
             </div>
           </div>
           <div className='info-description'>

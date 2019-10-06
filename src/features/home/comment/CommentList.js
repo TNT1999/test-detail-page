@@ -12,7 +12,12 @@ export class ComponentList extends Component {
             {
               this.props.comments.map((comment, index) => {
                 return (
-                  <CommentItem srcAvatar={comment.player.avatar} nickname={comment.player.username} key={index}>
+                  <CommentItem
+                    srcAvatar={comment.player.avatar}
+                    nickname={comment.player.username}
+                    avgRating={comment.avgRating}
+                    timeago={comment.createdAt}
+                    key={index}>
                     {comment.comment}
                   </CommentItem>
                 )
