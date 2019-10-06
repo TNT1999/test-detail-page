@@ -1,0 +1,102 @@
+.content-left {
+  flex: 1 1 0%;
+
+  .box-content {
+    background-color: #ffffff;
+    padding         : 16px 24px;
+    margin-bottom   : 16px;
+
+    .wrap-title {
+      display        : flex;
+      flex-direction : row;
+      justify-content: space-between;
+
+      .title {
+        flex-grow  : 1;
+        color      : rgb(59, 59, 59);
+        font-weight: 700;
+        font-size  : 22px;
+        line-height: 1.5em;
+        cursor     : pointer;
+      }
+
+      .list-icon {
+        align-items : center;
+        padding-left: 16px;
+        padding-top : 5px;
+
+        .icon {
+          display        : flex;
+          justify-content: space-around;
+          width          : 125px;
+        }
+      }
+    }
+
+    .info {
+      margin-top: 20px;
+
+      .info-qtwor {
+        display: flex;
+
+        .wrap-rating {
+          margin-left: 8px;
+
+          .total-rating {
+            margin-left: 8px;
+          }
+        }
+
+        .text-icon {
+          margin-right: 10px;
+        }
+      }
+
+      .info-tag-createdAt {
+        display        : flex;
+        justify-content: space-between;
+        margin-top     : 20px;
+
+        .list-tag {
+          display       : flex;
+          flex-grow     : 1;
+          flex-direction: row;
+        }
+      }
+
+      .info-description {
+        margin: 20px 0;
+
+        p {
+          font-size             : 15px;
+          color                 : rgb(153, 153, 153);
+          -webkit-font-smoothing: antialiased;
+        }
+      }
+    }
+
+    .wrap-play-btn {
+      .play-btn {
+        width           : 100%;
+        border          : none;
+        background-color: rgb(9, 132, 227);
+        background-image: none;
+        padding         : 8px 16px;
+        border-radius   : 4px;
+        color           : rgb(255, 255, 255);
+        font-size       : 18px;
+        font-weight     : 400;
+        outline         : none;
+
+        .bp3-button-text {
+          display    : flex;
+          align-items: center;
+
+          .bp3-icon {
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
