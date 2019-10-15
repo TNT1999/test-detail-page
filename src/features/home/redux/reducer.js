@@ -1,6 +1,12 @@
 import initialState from './initialState';
+import { reducer as getTestReducer } from './getTest';
+import { reducer as getRanksReducer } from './getRanks';
+import { reducer as getCommentsReducer } from './getComments';
 
 const reducers = [
+  getTestReducer,
+  getRanksReducer,
+  getCommentsReducer,
 ];
 
 export default function reducer(state = initialState, action) {

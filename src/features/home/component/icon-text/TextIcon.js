@@ -17,7 +17,7 @@ export default class TextIcon extends Component {
       <div className="text-icon">
         {icon && (<Icon icon={icon} iconSize={iconSize} color='rgb(9, 132, 227)' />)}
         <div className='img-text'>
-          {src && (<img src={src} className='imgAvt' />)}
+          {src && (<img src={src} alt='Lỗi không tải được' className='imgAvt' />)}
           <span>{children}</span>
         </div>
         {tick && (<Icon icon='endorsed' color='rgb(46, 204, 113)' iconSize='14' className='check' />)}

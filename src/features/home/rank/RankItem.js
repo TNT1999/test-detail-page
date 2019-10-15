@@ -19,12 +19,12 @@ export default class RankItem extends Component {
       <div className="rank-item">
         <div className='wrap-item'>
           <div className='icon-rank'>
-            {srcIcon ? (<img src={srcIcon} />) : (<span className='index'>{iconText}</span>)}
+            {srcIcon ? (<img src={srcIcon} alt='Lỗi không tải được' />) : (<span className='index'>{iconText}</span>)}
           </div>
           <div className='info-user'>
             <a href={srcInfoUser ? srcInfoUser : '#'}>
               <div className='wrap-info'>
-                <img src={srcAvatar} />
+                <img src={srcAvatar} alt='lỗi không tải được' />
                 <div className='info-name'>
                   <span className='nickname'>{username}</span>
                   {fullname && <div className='pd'></div>}

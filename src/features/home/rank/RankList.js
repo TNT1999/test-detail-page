@@ -6,7 +6,7 @@ export class RankList extends Component {
     switch (index) {
       case 0: {
         return (<RankItem
-          key={index} iconText={10}
+          key={index} 
           srcAvatar={rank.player.avatar}
           totalCorrect={rank.totalCorrect}
           totalQuestion={this.props.test.totalQuestions}
@@ -16,7 +16,7 @@ export class RankList extends Component {
       }
       case 1: {
         return (<RankItem
-          key={index} iconText={10}
+          key={index} 
           srcAvatar={rank.player.avatar}
           totalCorrect={rank.totalCorrect}
           totalQuestion={this.props.test.totalQuestions}
@@ -26,7 +26,7 @@ export class RankList extends Component {
       }
       case 2: {
         return (<RankItem
-          key={index} iconText={10}
+          key={index} 
           srcAvatar={rank.player.avatar}
           totalCorrect={rank.totalCorrect}
           totalQuestion={this.props.test.totalQuestions}
@@ -38,7 +38,7 @@ export class RankList extends Component {
       default:
         {
           return (<RankItem
-            key={index} iconText={10}
+            key={index} 
             srcAvatar={rank.player.avatar}
             totalCorrect={rank.totalCorrect}
             totalQuestion={this.props.test.totalQuestions}

@@ -8,11 +8,11 @@ export default class Tag extends Component {
   };
 
   render() {
-    const { href } = this.props
+    const { href,children } = this.props
     return (
       <div className="tag">
         <a href={href}>
-          {this.props.children}
+          {children}
         </a>
       </div>
     );

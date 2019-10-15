@@ -1,68 +1,58 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import TestDetail from './test-detail/TestDetail'
-import RankList from './rank/RankList'
-import CommentList from './comment/CommentList'
+import TestDetail from './test-detail/TestDetail';
+import RankList from './rank/RankList';
+import CommentList from './comment/CommentList';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from './redux/actions';
+import { ProgressBar} from '@blueprintjs/core';
 
 export class DefaultPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      test: {},
-      comments: [],
-      ranks: []
-    };
-  }
-
   componentDidMount() {
-    this.getTest()
-    this.getComonents()
-    this.getRanks()
-  }
-
-  getTest = async () => {
-    try {
-      let res = await axios.get("http://5d997652564143001405186b.mockapi.io/api/test/1");
-      let test = res.data;
-      this.setState({ test });
-    } catch (e) {
-      console.log(e)
-    }
-  };
-
-
-  getComonents = async () => {
-    try {
-      let res = await axios.get("http://5d997652564143001405186b.mockapi.io/api/test/1/comments")
-      let comments = res.data;
-      this.setState({ comments })
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  getRanks = async () => {
-    try {
-      let res = await axios.get("http://5d997652564143001405186b.mockapi.io/api/test/1/rank?orderBy=totalCorrect&&order=desc")
-      let ranks = res.data;
-      this.setState({ ranks })
-    } catch (err) {
-      console.log(err)
-    }
+    this.props.actions.getTest();
+    this.props.actions.getRanks();
+    this.props.actions.getComments();
   }
   render() {
-    if (!this.state.test.id) return null;
-    return (
-      <div className="wrapper">
-        <div className='container'>
-          <div className='content-left'>
-            <TestDetail test={this.state.test} />
-            <CommentList comments={this.state.comments} />
+    if (!this.props.home.getTestPending) {
+      //const { test, comments, ranks } = this.props.home;
+      return (
+        <div className="wrapper">
+          <div className="container">
+            <div className="content-left">
+              <TestDetail test={this.props.home.test} />
+              {this.props.home.getCommentsPending ? (
+                <ProgressBar animate stripes intent="Success" />
+              ) : (
+                <CommentList comments={this.props.home.comments} />
+              )}
+            </div>
+            {this.props.home.getRanksPending ? (
+              <ProgressBar animate stripes intent="Success" />
+            ) : (
+              <RankList ranks={this.props.home.ranks} test={this.props.home.test} />
+            )}
           </div>
-          <RankList ranks={this.state.ranks} test={this.state.test} />
         </div>
-      </div>
-    );
+      );
+    } else return <ProgressBar animate stripes intent="Success" />;
   }
 }
-export default DefaultPage
+/* istanbul ignore next */
+function mapStateToProps(state) {
+  return {
+    home: state.home,
+  };
+}
+
+/* istanbul ignore next */
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({ ...actions }, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DefaultPage);

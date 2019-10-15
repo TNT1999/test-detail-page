@@ -18,10 +18,10 @@ export default class CommentItem extends Component {
       <div className="comment-item">
         <div className='wrap-item'>
           <div className='wrap-info'>
-            <img src={srcAvatar} />
+            <img src={srcAvatar} alt='Không tải được' />
             <div className='wrap-info-name'>
               <div className='info-name'>
-                <a href='#'>
+                <a href=''>
                   <span className='nickname'>{nickname}</span>
                 </a>
                 <div className='div-rating'>
